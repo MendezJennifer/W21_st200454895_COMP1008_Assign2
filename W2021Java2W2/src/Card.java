@@ -1,9 +1,9 @@
 /** Class Card: blueprint for Card objects, contains: faceName and suit
- * Week2: Building Classes
- * Author: Jennifer Mendez
- *Date: 28/Jan/2021
- *Time: 10:50 am
- */
+* Week2: Building Classes
+* Author: Jennifer Mendez
+*Date: 28/Jan/2021
+*Time: 10:50 am
+*/
 
 //import statements
 import java.util.Arrays;
