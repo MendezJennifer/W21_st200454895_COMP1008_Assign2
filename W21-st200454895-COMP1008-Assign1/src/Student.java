@@ -2,7 +2,7 @@
  * Lab: Week 2
  * Author: Jennifer Mendez
  *Date: 28/Jan/2021
- *Time: 6:50 pm
+ *Time: 6:50 PM
  */
 
 public class Student
