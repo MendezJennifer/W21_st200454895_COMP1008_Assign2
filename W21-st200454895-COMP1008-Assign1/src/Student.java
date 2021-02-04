@@ -27,15 +27,15 @@ public class Student
     }
 
     /**
-     * Method that validates that the argument is "Jennifer", the correct student fName
+     * Method that validates that the first name is longer than 2 characters
      * @param fName - String that represents the student's first name
      */
     public void setFName(String fName)
     {
-        if(fName.equalsIgnoreCase("Jennifer"))
+        if(fName.length()<=2)
             this.fName=fName;
         else
-            throw new IllegalArgumentException("Invalid first name, use: Jennifer");
+            throw new IllegalArgumentException("First name must be longer than 2 characters");
     }
 
     public String getLName()
@@ -44,15 +44,15 @@ public class Student
     }
 
     /**
-     * Method that validates that the argument is "Mendez", the correct student lName
+     * Method that validates that the last name is longer than 2 characters
      * @param lName - String that represents the student's last name
      */
     public void setLName(String lName)
     {
-        if(lName.equalsIgnoreCase("Mendez"))
+        if(lName.length()<=2)
             this.lName=lName;
         else
-            throw new IllegalArgumentException("Invalid last name, use: Mendez");
+            throw new IllegalArgumentException("Last name must be longer than 2 characters");
     }
 
     public int getStudentNumber()
@@ -61,15 +61,15 @@ public class Student
     }
 
     /**
-     * Method that validates that the argument is "200454895", the correct student number
+     * Method that validates that the student number has nine digits
      * @param studentNumber - String that represents the student's number
      */
     public void setStudentNumber(int studentNumber)
     {
-        if(studentNumber==200454895)
+        if(studentNumber>99999999 && studentNumber<1000000000)
             this.studentNumber = studentNumber;
         else
-            throw new IllegalArgumentException("Invalid student number, use: 200454895");
+            throw new IllegalArgumentException("Invalid student number, must be between 100000000 and 999999999");
     }
 
 }
