@@ -5,17 +5,20 @@
  *Time: 10:23 pm
  */
 
+import java.util.ArrayList;
 public class Student
 {
     private String fName;
     private String lName;
     private int studentNum;
+    private ArrayList<String> studentInterests;
 
-    public Student(String fName, String lName, int studentNum)
+    public Student(String fName, String lName, int studentNum,ArrayList<String> studentInterests )
     {
         setFName(fName);
         setlName(lName);
         setStudentNum(studentNum);
+        setStudentInterests(studentInterests);
     }
 
     public String getFName()
@@ -58,7 +61,7 @@ public class Student
     }
 
     /**
-     * Methos that ensures the student number is 9 digits long
+     * Method that ensures the student number is 9 digits long
      * @param studentNum
      */
     public void setStudentNum(int studentNum)
@@ -67,5 +70,43 @@ public class Student
             this.studentNum = studentNum;
         else
             throw new IllegalArgumentException("Student number must be between 100000000 and 999999999");
+    }
+
+    public ArrayList<String> getStudentInterests()
+    {
+        return studentInterests;
+    }
+
+    /**
+     * Method that will return a list of valid student interests
+     * @return interests
+     */
+    public static ArrayList<String> obtainInterests()
+    {
+        ArrayList<String> interests=new ArrayList<>();
+        interests.add("Reading");
+        interests.add("Hiking");
+        interests.add("Dancing");
+        interests.add("Cooking");
+        interests.add("Coding");
+        interests.add("Gaming");
+        interests.add("Swimming");
+        interests.add("Drawing");
+        return  interests;
+    }
+
+    /**
+     * Method that ensures the argument only contains interests from a valid list of interests
+     * @param interests
+     */
+    public void setStudentInterests(ArrayList<String> interests)
+    {
+        ArrayList<String> validInterests = obtainInterests();
+        for (String studentInterests:interests)
+        {
+            if (!validInterests.contains(studentInterests))
+                throw new IllegalArgumentException(studentInterests + " is not valid. Please choose from the following list: "+validInterests);
+        }
+        this.studentInterests = studentInterests;
     }
 }
