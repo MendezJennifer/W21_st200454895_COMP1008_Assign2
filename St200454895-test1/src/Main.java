@@ -78,15 +78,15 @@ public class Main {
         System.out.println("cat should sound like meow meow-> "+pet.speak());
 
         System.out.println("\n-----Question 2.8-------");
-//        System.out.println("cat should move by walks or runs-> "+pet.movesBy());
+        System.out.println("cat should move by walks or runs-> "+pet.movesBy());
 
         System.out.println("\n-----Question 2.9-------");
-//        System.out.println("cat hasFur() should return true-> "+pet.hasFur());
-//        pet.setType("fish");
-//        System.out.println("fish hasFur() should return false-> "+pet.hasFur());
+        System.out.println("cat hasFur() should return true-> "+pet.hasFur());
+        pet.setType("fish");
+        System.out.println("fish hasFur() should return false-> "+pet.hasFur());
 
         System.out.println("\n-----Question 2.10-------");
-//        System.out.println("toString() should return: 'Chester is a 10 year old yellow fish' ");
-//        System.out.printf("actual returned String is '%s'%n",pet);
+        System.out.println("toString() should return: 'Chester is a 10 year old yellow fish' ");
+        System.out.printf("actual returned String is '%s'%n",pet);
     }
 }

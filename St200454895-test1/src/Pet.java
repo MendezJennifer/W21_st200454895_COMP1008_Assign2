@@ -90,6 +90,36 @@ public class Pet
         }
     }
 
+    public String movesBy()
+    {
+        type=type.toLowerCase();
+        switch (type)
+        {
+            case "dog":
+                return "walks or runs";
+            case "cat":
+                return "walks or runs";
+            case "bird":
+                return "flies";
+            case "reptile":
+                return "slither or walk";
+            case "fish":
+                return "swim";
+            default:
+                return "Invalid pet";
+        }
+    }
+
+    public boolean hasFur()
+    {
+        return type.equalsIgnoreCase("dog") || type.equalsIgnoreCase("cat");
+    }
+
+    public String toString()
+    {
+        return name +" is a " + age +" year(s) old "+ colour + " " + type;
+    }
+
 
 }
 
