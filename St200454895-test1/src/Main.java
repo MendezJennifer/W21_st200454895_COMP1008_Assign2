@@ -18,45 +18,45 @@ public class Main {
         System.out.println("colour: "+pet.getColour());
 
         //testing invalid inputs
-//        try{
-//            Pet pet2 = new Pet("A","dog",2,"brown");
-//            System.err.println("Pet with name 'A' should have triggered an exception");
-//        }
-//        catch (IllegalArgumentException e){
-//            System.out.println("invalid name message: "+e.getMessage());
-//        }
-//
-//        try{
-//            Pet pet2 = new Pet("Albert","giraffe",2,"brown");
-//            System.err.println("Pet with type giraffe should have triggered an exception");
-//        }
-//        catch (IllegalArgumentException e){
-//            System.out.println("invalid type message: "+e.getMessage());
-//        }
-//
-//        try{
-//            Pet pet2 = new Pet("Albert","dog",-1,"brown");
-//            System.err.println("Pet with age -1 should have triggered an exception");
-//        }
-//        catch (IllegalArgumentException e){
-//            System.out.println("invalid age message: "+e.getMessage());
-//        }
-//
-//        try{
-//            Pet pet2 = new Pet("Albert","dog",61,"brown");
-//            System.err.println("dog with age 61 should have triggered an exception");
-//        }
-//        catch (IllegalArgumentException e){
-//            System.out.println("invalid age message: "+e.getMessage());
-//        }
-//
-//        try{
-//            Pet pet2 = new Pet("Albert","dog",2,"sarcoline");
-//            System.err.println("pet with colour sarcoline should have triggered an exception");
-//        }
-//        catch (IllegalArgumentException e){
-//            System.out.println("invalid colour message: "+e.getMessage());
-//        }
+        try{
+            Pet pet2 = new Pet("A","dog",2,"brown");
+            System.err.println("Pet with name 'A' should have triggered an exception");
+        }
+        catch (IllegalArgumentException e){
+            System.out.println("invalid name message: "+e.getMessage());
+        }
+
+        try{
+            Pet pet2 = new Pet("Albert","giraffe",2,"brown");
+            System.err.println("Pet with type giraffe should have triggered an exception");
+        }
+        catch (IllegalArgumentException e){
+            System.out.println("invalid type message: "+e.getMessage());
+        }
+
+        try{
+            Pet pet2 = new Pet("Albert","dog",-1,"brown");
+            System.err.println("Pet with age -1 should have triggered an exception");
+        }
+        catch (IllegalArgumentException e){
+            System.out.println("invalid age message: "+e.getMessage());
+        }
+
+        try{
+            Pet pet2 = new Pet("Albert","dog",61,"brown");
+            System.err.println("dog with age 61 should have triggered an exception");
+        }
+        catch (IllegalArgumentException e){
+            System.out.println("invalid age message: "+e.getMessage());
+        }
+
+        try{
+            Pet pet2 = new Pet("Albert","dog",2,"sarcoline");
+            System.err.println("pet with colour sarcoline should have triggered an exception");
+        }
+        catch (IllegalArgumentException e){
+            System.out.println("invalid colour message: "+e.getMessage());
+        }
 
         System.out.println("\n-----Question 2.3-------");
         pet.setName("Chester");
