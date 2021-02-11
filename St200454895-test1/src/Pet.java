@@ -12,13 +12,13 @@ public class Pet
     private String name;
     private String type;
     private int age;
-    private String color;
+    private String colour;
 
-    public Pet(String name, int age, String type, String color) {
-        this.name = name;
-        this.age = age;
-        this.type = type;
-        this.color = color;
+    public Pet(String name, String type, int age, String colour) {
+        setName(name);
+        setType(type);
+        setAge(age);
+        setColour(colour);
     }
 
     public String getName() {
@@ -33,8 +33,8 @@ public class Pet
         return type;
     }
 
-    public String getColor() {
-        return color;
+    public String getColour() {
+        return colour;
     }
 
     public void setName(String name) {
@@ -61,14 +61,36 @@ public class Pet
             throw new IllegalArgumentException("Pet age should be between 0 and 60 years.");
     }
 
-    public void setColor(String color) {
-        color=color.toLowerCase();
-        List<String> validPetColors= Arrays.asList("yellow", "brown", "black", "blue", "red", "white", "grey");
-        if(validPetColors.contains(color))
-            this.color = color;
+    public void setColour(String colour) {
+        colour=colour.toLowerCase();
+        List<String> validPetColours= Arrays.asList("yellow", "brown", "black", "blue", "red", "white", "grey");
+        if(validPetColours.contains(colour))
+            this.colour = colour;
         else
-            throw new IllegalArgumentException(color+" color is invalid, please select one of the following: "+validPetColors);
+            throw new IllegalArgumentException(colour+" colour is invalid, please select one of the following: "+validPetColours);
     }
+
+    public String speak()
+    {
+        type=type.toLowerCase();
+        switch (type)
+        {
+            case "dog":
+                return "woof woof";
+            case "cat":
+                return "meow meow";
+            case "bird":
+                return "chirp chirp";
+            case "reptile":
+                return "hiss";
+            case "fish":
+                return "<swimming sound>";
+            default:
+                return "Invalid pet";
+        }
+    }
+
+
 }
 
 

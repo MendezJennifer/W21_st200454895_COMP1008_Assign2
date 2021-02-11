@@ -11,11 +11,11 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("-----Question 2.1 & 2.2-------");
-//        Pet pet = new Pet("Geronimo","dog",2,"brown");
-//        System.out.println("name: "+pet.getName());
-//        System.out.println("type: "+pet.getType());
-//        System.out.println("age: "+pet.getAge());
-//        System.out.println("colour: "+pet.getColour());
+        Pet pet = new Pet("Geronimo","dog",2,"brown");
+        System.out.println("name: "+pet.getName());
+        System.out.println("type: "+pet.getType());
+        System.out.println("age: "+pet.getAge());
+        System.out.println("colour: "+pet.getColour());
 
         //testing invalid inputs
 //        try{
@@ -59,23 +59,23 @@ public class Main {
 //        }
 
         System.out.println("\n-----Question 2.3-------");
-//        pet.setName("Chester");
-//        System.out.println("setName() should have changed name to Chester-> "+pet.getName());
+        pet.setName("Chester");
+        System.out.println("setName() should have changed name to Chester-> "+pet.getName());
 
         System.out.println("\n-----Question 2.4-------");
-//        pet.setType("CaT");
-//        System.out.println("pet type should be cat-> "+pet.getType());
+        pet.setType("CaT");
+        System.out.println("pet type should be cat-> "+pet.getType());
 
         System.out.println("\n-----Question 2.5-------");
-//        pet.setAge(10);
-//        System.out.println("pet age should be 10-> "+pet.getAge());
+        pet.setAge(10);
+        System.out.println("pet age should be 10-> "+pet.getAge());
 
         System.out.println("\n-----Question 2.6-------");
-//        pet.setColour("yellow");
-//        System.out.println("pet colour should be yellow-> "+pet.getColour());
+        pet.setColour("yellow");
+        System.out.println("pet colour should be yellow-> "+pet.getColour());
 
         System.out.println("\n-----Question 2.7-------");
-//        System.out.println("cat should sound like meow meow-> "+pet.speak());
+        System.out.println("cat should sound like meow meow-> "+pet.speak());
 
         System.out.println("\n-----Question 2.8-------");
 //        System.out.println("cat should move by walks or runs-> "+pet.movesBy());
