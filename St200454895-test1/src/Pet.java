@@ -1,7 +1,9 @@
 /** Class Pet blueprint: Pet objects, contains:  name, type, age, colour
  * Exam 1
  * Author: Jennifer Mendez
+ * Student Number: 200454895
  *Date: 11/Fec/2021
+ * Time: 11:13 AM
  */
 
 import java.util.Arrays;
