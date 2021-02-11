@@ -41,6 +41,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac950039-094a-4689-9f56-64776551dea8" name="Default Changelist" comment="Added studentInterests as Student class state, created a valid list of interests and a method to validate the parameter">
+      <change afterPath="$PROJECT_DIR$/../W21Java2JavaFXHelloWorld/W21Java2JavaFXHelloWorld.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../W21Java2W1/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../W21Java2W1/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../W21Java2W1/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../W21Java2W1/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../W21Java2W1/W21Java2W1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../W21Java2W1/src/Example.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../W21Java2W3/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../W21Java2W3/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../W21Java2W3/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../W21Java2W3/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../W21Java2W3/W21Java2W3.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
