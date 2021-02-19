@@ -1,4 +1,4 @@
-/** Class Student: blueprint for Student objects, contains: first name, last name, student number
+package models; /** Class models.Student: blueprint for models.Student objects, contains: first name, last name, student number
  * COMP1008:Lab 2
  * Author: Jennifer Mendez
  *Date: 04/Feb/2021
@@ -27,15 +27,16 @@ public class Student
     }
 
     /**
-     * Method that ensures the first name is at least 2 characters long
+     * Method that ensures the first name is at least 2 characters long and begins with an uppercase letter
      * @param fName
      */
     public void setFName(String fName)
     {
-        if (fName.length()>=2)
+        char firstLetter=fName.charAt(0);
+        if (fName.length()>=2 && Character.isUpperCase(firstLetter))
             this.fName = fName;
         else
-            throw new IllegalArgumentException("First Name must be at least two characters.");
+            throw new IllegalArgumentException("First Name must be at least two characters and begin with an uppercase letter.");
     }
 
     public String getLName()
@@ -44,15 +45,16 @@ public class Student
     }
 
     /**
-     * Method that ensures the last name is at least 2 characters long
+     * Method that ensures the last name is at least 2 characters long and begins with an uppercase letter
      * @param lName
      */
     public void setlName(String lName)
     {
-        if (lName.length()>=2)
+        char firstLetter=lName.charAt(0);
+        if (lName.length()>=2 && Character.isUpperCase(firstLetter))
             this.lName = lName;
         else
-            throw new IllegalArgumentException("Last Name must be at least two characters.");
+            throw new IllegalArgumentException("Last Name must be at least two characters long and begin with an uppercase letter.");
     }
 
     public int getStudentNum()
@@ -69,7 +71,7 @@ public class Student
         if (studentNum>=100000000 && studentNum<1000000000)
             this.studentNum = studentNum;
         else
-            throw new IllegalArgumentException("Student number must be between 100000000 and 999999999");
+            throw new IllegalArgumentException("models.Student number must be between 100000000 and 999999999");
     }
 
     public ArrayList<String> getStudentInterests()
