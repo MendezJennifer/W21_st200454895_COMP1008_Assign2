@@ -78,6 +78,7 @@ public class StudentViewController implements Initializable
         stage.setScene(scene);
         stage.setTitle("Viewing Student Interests");
         stage.show();
+        ////
     }
 }
 
