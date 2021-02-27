@@ -1,17 +1,22 @@
-package models; /** Class models.Student: blueprint for models.Student objects, contains: first name, last name, student number
- * COMP1008:Lab 2
+ /** Class models.Student: blueprint for models.Student objects, contains: first name, last name, student number
+ * COMP1008:Assignment 1
  * Author: Jennifer Mendez
  *Date: 04/Feb/2021
  *Time: 10:23 pm
  */
 
+ package models;
+import javafx.scene.image.Image;
 import java.util.ArrayList;
-public class Student
+import java.util.Locale;
+
+ public class Student
 {
     private String fName;
     private String lName;
     private int studentNum;
     private ArrayList<String> studentInterests;
+    private Image studentImage;
 
     public Student(String fName, String lName, int studentNum,ArrayList<String> studentInterests )
     {
@@ -19,6 +24,7 @@ public class Student
         setlName(lName);
         setStudentNum(studentNum);
         setStudentInterests(studentInterests);
+        setStudentImage();
     }
 
     public String getFName()
@@ -32,11 +38,10 @@ public class Student
      */
     public void setFName(String fName)
     {
-        char firstLetter=fName.charAt(0);
-        if (fName.length()>=2 && Character.isUpperCase(firstLetter))
-            this.fName = fName;
+        if (fName.length()>=2)
+            this.fName = fName.substring(0,1).toUpperCase()+fName.substring(1).toLowerCase();
         else
-            throw new IllegalArgumentException("First Name must be at least two characters and begin with an uppercase letter.");
+            throw new IllegalArgumentException("First Name must be at least two characters long.");
     }
 
     public String getLName()
@@ -50,11 +55,10 @@ public class Student
      */
     public void setlName(String lName)
     {
-        char firstLetter=lName.charAt(0);
-        if (lName.length()>=2 && Character.isUpperCase(firstLetter))
-            this.lName = lName;
+        if (lName.length()>=2)
+            this.lName = lName.substring(0,1).toUpperCase()+lName.substring(1);
         else
-            throw new IllegalArgumentException("Last Name must be at least two characters long and begin with an uppercase letter.");
+            throw new IllegalArgumentException("Last Name must be at least two characters long.");
     }
 
     public int getStudentNum()
@@ -71,7 +75,7 @@ public class Student
         if (studentNum>=100000000 && studentNum<1000000000)
             this.studentNum = studentNum;
         else
-            throw new IllegalArgumentException("models.Student number must be between 100000000 and 999999999");
+            throw new IllegalArgumentException("Student number must be between 100000000 and 999999999");
     }
 
     public ArrayList<String> getStudentInterests()
@@ -110,5 +114,20 @@ public class Student
                 throw new IllegalArgumentException(studentInterests + " is not valid. Please choose from the following list: "+validInterests);
         }
         this.studentInterests = studentInterests;
+    }
+
+    /**
+     * This method will use the student number to establish the correct image to load
+     */
+    private void setStudentImage()
+    {
+        String filePath=String.format("images/%d.jpg",studentNum);
+        //System.out.println(filePath);
+        studentImage=new Image(filePath);
+    }
+
+    public Image getStudentImage()
+    {
+        return studentImage;
     }
 }

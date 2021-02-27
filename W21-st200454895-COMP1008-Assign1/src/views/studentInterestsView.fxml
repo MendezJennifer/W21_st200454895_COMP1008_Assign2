@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StudentInterestsViewController">
+   <children>
+      <Button layoutX="108.0" layoutY="308.0" mnemonicParsing="false" onAction="#goToStudentCard" text="Student Card">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <VBox layoutX="332.0" layoutY="36.0" prefHeight="339.0" prefWidth="214.0">
+         <children>
+            <CheckBox fx:id="readingBox" mnemonicParsing="false" onAction="#updateInterests" text="Reading">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="hikingBox" mnemonicParsing="false" onAction="#updateInterests" text="Hiking">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="dancingBox" mnemonicParsing="false" onAction="#updateInterests" text="Dancing">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="cookingBox" mnemonicParsing="false" onAction="#updateInterests" text="Cooking">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="codingBox" mnemonicParsing="false" onAction="#updateInterests" text="Coding">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="gamingBox" mnemonicParsing="false" onAction="#updateInterests" text="Gaming">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="swimmingBox" mnemonicParsing="false" onAction="#updateInterests" text="Swimming">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="drawingBox" mnemonicParsing="false" onAction="#updateInterests" prefWidth="132.0" text="Drawing">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Update Interests" textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="40.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <ImageView fx:id="imageView" fitHeight="212.0" fitWidth="255.0" layoutX="45.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/200454895.jpg" />
+         </image>
+      </ImageView>
+      <HBox layoutX="44.0" layoutY="36.0" prefHeight="35.0" prefWidth="246.0">
+         <children>
+            <Label fx:id="fNameLabel" prefHeight="35.0" prefWidth="129.0" text="Label">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lNameLabel" prefHeight="35.0" prefWidth="117.0" text="Label">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Label fx:id="studentInterestsLabel" layoutX="139.0" layoutY="358.0" text="Label" />
+   </children>
+</AnchorPane>
