@@ -8,14 +8,18 @@
 
 import java.util.ArrayList;
 
-public class CarLot {
+public class CarLot
+{
     private ArrayList<Car> cars;
 
-    public CarLot(){
+    public CarLot(ArrayList<Car> cars)
+    {
+        cars= new ArrayList<>();
     }
 
     public void addCar(Car car)
     {
+        cars.add(new Car(car.getMake(),car.getModel(),car.getMileage(),car.getPrice()));
     }
 
     public double getInventoryValue()
