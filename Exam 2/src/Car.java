@@ -51,7 +51,35 @@ public class Car {
             throw new IllegalArgumentException("Car make must be one of the following: Ford, Honda, Porsche.");
     }
 
-    public void setModel(String model) {
+    public void setModel(String model)
+    {
+        if(make.equals("Ford"))
+        {
+            if(model.equals("F150") || model.equals("Escort") || model.equals("Explorer"))
+            {
+                this.model=model;
+            }
+            else
+                throw new IllegalArgumentException("Car model must be one of the following: F150, Escort, Explorer.");
+        }
+        else if(make.equals("Honda"))
+        {
+            if(model.equals("Accord") || model.equals("Civic") || model.equals("Pilot"))
+            {
+                this.model=model;
+            }
+            else
+                throw new IllegalArgumentException("Car model must be one of the following: Accord, Civic, Pilot.");
+        }
+        else if(make.equals("Porsche"))
+        {
+            if(model.equals("911") || model.equals("Cayman") || model.equals("718 Boxster"))
+            {
+                this.model=model;
+            }
+            else
+                throw new IllegalArgumentException("Car model must be one of the following: 911, Cayman, 718 Boxster.");
+        }
     }
 
     public void setMileage(int mileage) {
