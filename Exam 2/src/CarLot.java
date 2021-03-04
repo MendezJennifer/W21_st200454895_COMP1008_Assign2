@@ -35,35 +35,57 @@ public class CarLot
 
     public ArrayList<Car> getCarsByBrand(String manufacturer)
     {
-        ArrayList<Car> ford= new ArrayList<>();
-        ArrayList<Car> honda= new ArrayList<>();
-        ArrayList<Car> porsche= new ArrayList<>();
-        ArrayList<Car> others= new ArrayList<>();
+        ArrayList<Car> fordBrand= new ArrayList<>();
+        ArrayList<Car> hondaBrand= new ArrayList<>();
+        ArrayList<Car> porscheBrand= new ArrayList<>();
+        ArrayList<Car> othersBrand= new ArrayList<>();
         for(Car car:cars)
         {
             if (manufacturer.equals("Ford"))
             {
-                ford.add(car);
-                return ford;
+                fordBrand.add(car);
+                return fordBrand;
             }
             else if (manufacturer.equals("Honda"))
             {
-                honda.add(car);
-                return honda;
+                hondaBrand.add(car);
+                return hondaBrand;
             }
             else if (manufacturer.equals("Porsche"))
             {
-                porsche.add(car);
-                return porsche;
+                porscheBrand.add(car);
+                return porscheBrand;
             }
         }
-        return others;
+        return othersBrand;
 
     }
 
     public ArrayList<Car> getCarsByModel(String model)
     {
-        return null;
+        ArrayList<Car> fordModel= new ArrayList<>();
+        ArrayList<Car> hondaModel= new ArrayList<>();
+        ArrayList<Car> porscheModel= new ArrayList<>();
+        ArrayList<Car> othersModel= new ArrayList<>();
+        for(Car car:cars)
+        {
+            if (model.equals("Ford"))
+            {
+                fordModel.add(car);
+                return fordModel;
+            }
+            else if (model.equals("Honda"))
+            {
+                hondaModel.add(car);
+                return hondaModel;
+            }
+            else if (model.equals("Porsche"))
+            {
+                porscheModel.add(car);
+                return porscheModel;
+            }
+        }
+        return othersModel;
     }
 
     public ArrayList<Car> getCarsBelowPrice(double maxPrice)
