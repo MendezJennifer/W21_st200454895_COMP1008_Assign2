@@ -135,7 +135,16 @@ public class CarLot
 
     public double getAvgPrice()
     {
-        return -1;
+        double carInventoryValue=0;
+        for(Car car:cars)
+        {
+            carInventoryValue=carInventoryValue + car.getPrice();
+
+        }
+        if (cars.size()>0)
+            return carInventoryValue/cars.size();
+        else
+            return 0;
     }
 
     public int getNumOfCarsInInventory()
