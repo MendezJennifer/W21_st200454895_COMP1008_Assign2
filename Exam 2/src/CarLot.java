@@ -35,7 +35,30 @@ public class CarLot
 
     public ArrayList<Car> getCarsByBrand(String manufacturer)
     {
-        return null;
+        ArrayList<Car> ford= new ArrayList<>();
+        ArrayList<Car> honda= new ArrayList<>();
+        ArrayList<Car> porsche= new ArrayList<>();
+        ArrayList<Car> others= new ArrayList<>();
+        for(Car car:cars)
+        {
+            if (manufacturer.equals("Ford"))
+            {
+                ford.add(car);
+                return ford;
+            }
+            else if (manufacturer.equals("Honda"))
+            {
+                honda.add(car);
+                return honda;
+            }
+            else if (manufacturer.equals("Porsche"))
+            {
+                porsche.add(car);
+                return porsche;
+            }
+        }
+        return others;
+
     }
 
     public ArrayList<Car> getCarsByModel(String model)
