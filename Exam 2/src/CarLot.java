@@ -62,35 +62,28 @@ public class CarLot
 
     public ArrayList<Car> getCarsByModel(String model)
     {
-        ArrayList<Car> fordModel= new ArrayList<>();
-        ArrayList<Car> hondaModel= new ArrayList<>();
-        ArrayList<Car> porscheModel= new ArrayList<>();
-        ArrayList<Car> othersModel= new ArrayList<>();
+        ArrayList<Car> byModel= new ArrayList<>();
         for(Car car:cars)
         {
-            if (model.equals("Ford"))
+            if (model.contains("Ford"))
             {
-                fordModel.add(car);
-                return fordModel;
+                byModel.add(car);
             }
-            else if (model.equals("Honda"))
+            else if (model.contains("Honda"))
             {
-                hondaModel.add(car);
-                return hondaModel;
+                byModel.add(car);
             }
-            else if (model.equals("Porsche"))
+            else if (model.contains("Porsche"))
             {
-                porscheModel.add(car);
-                return porscheModel;
+                byModel.add(car);
             }
         }
-        return othersModel;
+        return byModel;
     }
 
     public ArrayList<Car> getCarsBelowPrice(double maxPrice)
     {
         ArrayList<Car> belowPrice= new ArrayList<>();
-        ArrayList<Car> othersPrice= new ArrayList<>();
         for(Car car:cars)
         {
             if (car.getPrice()<=maxPrice)
@@ -104,7 +97,6 @@ public class CarLot
     public ArrayList<Car> getCarsBelowMileage(double maxkm)
     {
         ArrayList<Car> belowMileage= new ArrayList<>();
-        ArrayList<Car> othersMileage= new ArrayList<>();
         for(Car car:cars)
         {
             if (car.getMileage()<=maxkm)
