@@ -46,19 +46,18 @@ public class CarLot
                 fordBrand.add(car);
                 return fordBrand;
             }
-            else if (manufacturer.equals("Honda"))
+            if (manufacturer.equals("Honda"))
             {
                 hondaBrand.add(car);
                 return hondaBrand;
             }
-            else if (manufacturer.equals("Porsche"))
+            if (manufacturer.equals("Porsche"))
             {
                 porscheBrand.add(car);
                 return porscheBrand;
             }
         }
         return othersBrand;
-
     }
 
     public ArrayList<Car> getCarsByModel(String model)
@@ -97,10 +96,9 @@ public class CarLot
             if (car.getPrice()<=maxPrice)
             {
                 belowPrice.add(car);
-                return belowPrice;
             }
         }
-        return othersPrice;
+        return belowPrice;
     }
 
     public ArrayList<Car> getCarsBelowMileage(double maxkm)
@@ -112,25 +110,22 @@ public class CarLot
             if (car.getMileage()<=maxkm)
             {
                 belowMileage.add(car);
-                return belowMileage;
             }
         }
-        return othersMileage;
+        return belowMileage;
     }
 
     public int getNumOfCarsUnderPrice(double maxPrice)
     {
         ArrayList<Car> belowPrice= new ArrayList<>();
-        ArrayList<Car> othersPrice= new ArrayList<>();
         for(Car car:cars)
         {
             if (car.getPrice()<=maxPrice)
             {
                 belowPrice.add(car);
-                return belowPrice.size();
             }
         }
-        return othersPrice.size();
+        return belowPrice.size();
     }
 
     public double getAvgPrice()
