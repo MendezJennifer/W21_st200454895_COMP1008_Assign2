@@ -94,7 +94,7 @@ public class CarLot
         ArrayList<Car> othersPrice= new ArrayList<>();
         for(Car car:cars)
         {
-            if (maxPrice<=50000)
+            if (car.getPrice()<=maxPrice)
             {
                 belowPrice.add(car);
                 return belowPrice;
@@ -105,7 +105,17 @@ public class CarLot
 
     public ArrayList<Car> getCarsBelowMileage(double maxkm)
     {
-        return null;
+        ArrayList<Car> belowMileage= new ArrayList<>();
+        ArrayList<Car> othersMileage= new ArrayList<>();
+        for(Car car:cars)
+        {
+            if (car.getMileage()<=maxkm)
+            {
+                belowMileage.add(car);
+                return belowMileage;
+            }
+        }
+        return othersMileage;
     }
 
     public int getNumOfCarsUnderPrice(double maxPrice)
