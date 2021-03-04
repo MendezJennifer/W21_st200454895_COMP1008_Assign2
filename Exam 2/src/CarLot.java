@@ -149,7 +149,7 @@ public class CarLot
 
     public int getNumOfCarsInInventory()
     {
-        return -1;
+        return cars.size();
     }
 
     public String toString()
