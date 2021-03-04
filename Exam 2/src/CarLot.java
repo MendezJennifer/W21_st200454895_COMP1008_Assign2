@@ -120,7 +120,17 @@ public class CarLot
 
     public int getNumOfCarsUnderPrice(double maxPrice)
     {
-        return -1;
+        ArrayList<Car> belowPrice= new ArrayList<>();
+        ArrayList<Car> othersPrice= new ArrayList<>();
+        for(Car car:cars)
+        {
+            if (car.getPrice()<=maxPrice)
+            {
+                belowPrice.add(car);
+                return belowPrice.size();
+            }
+        }
+        return othersPrice.size();
     }
 
     public double getAvgPrice()
