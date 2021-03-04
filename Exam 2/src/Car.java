@@ -104,6 +104,6 @@ public class Car {
 
     public String toString()
     {
-        return "";
+        return String.format("%s %s, with %d km - asking $%.2f",make,model,mileage,price);
     }
 }
