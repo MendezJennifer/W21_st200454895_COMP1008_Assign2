@@ -154,6 +154,12 @@ public class CarLot
 
     public String toString()
     {
-        return "";
+        double carInventoryValue=0;
+        for(Car car:cars)
+        {
+            carInventoryValue=carInventoryValue + car.getPrice();
+
+        }
+        return String.format("We have %d cars worth $%.2f",cars.size(),carInventoryValue);
     }
 }
