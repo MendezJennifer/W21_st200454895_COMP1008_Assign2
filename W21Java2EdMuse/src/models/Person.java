@@ -1,6 +1,7 @@
 package models;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 public class Person
 {
@@ -13,6 +14,11 @@ public class Person
         setLastName(lastName);
         setAddress(address);
         setBirthday(birthday);
+    }
+
+    public int getAge()
+    {
+        return Period.between(birthday,LocalDate.now()).getYears();
     }
 
     public void setFirstName(String firstName)
