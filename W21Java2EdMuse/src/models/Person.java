@@ -32,14 +32,16 @@ public class Person
      */
     public void setFirstName(String firstName)
     {
-        firstName=firstName.substring(0,1).toUpperCase()+firstName.substring(1);
-        //setting a pattern, first character must be uppercase A to Z, the rest must be lowercase a to z
-        if(firstName.matches("[A-Z][a-z]*"))
-        {
-            this.firstName = firstName;
+        firstName = firstName.trim();
+        if (firstName.length()>=2){
+            firstName = firstName.substring(0,1).toUpperCase() + firstName.substring(1);
+            if (firstName.matches("[A-Z][a-z]*"))
+                this.firstName = firstName;
+            else
+                throw new IllegalArgumentException("First Name must start with an upper case letter and only contain alphabetic characters");
         }
         else
-            throw new IllegalArgumentException("First Name must start with an upper case letter and only contain alphabetic characters");
+            throw new IllegalArgumentException("First name must have at least 2 characters");
     }
 
     /**
@@ -48,25 +50,27 @@ public class Person
      */
     public void setLastName(String lastName)
     {
-        lastName=lastName.substring(0,1).toUpperCase()+lastName.substring(1);
-        //setting a pattern, first character must be uppercase A to Z, the rest must be lowercase a to z
-        if(lastName.matches("[A-Z][a-z]*"))
-        {
-            this.lastName = lastName;
+        lastName = lastName.trim();
+        if (lastName.length()>=2){
+            lastName = lastName.substring(0,1).toUpperCase() + lastName.substring(1);
+            if (lastName.matches("[A-Z][a-z]*"))
+                this.lastName = lastName;
+            else
+                throw new IllegalArgumentException("Last Name must start with an upper case letter and only contain alphabetic characters");
         }
         else
-            throw new IllegalArgumentException("Last Name must start with an upper case letter and only contain alphabetic characters");
+            throw new IllegalArgumentException("Last name must have at least 2 characters");
     }
 
     public void setAddress(String address)
     {
         address=address.trim();
-        if(address.length()>=5 && address.length()<=30)
+        if(address.length()>=5 && address.length()<=100)
         {
             this.address = address;
         }
         else
-            throw new IllegalArgumentException("Address must be 5 to 30 characters");
+            throw new IllegalArgumentException("Address must be 5 to 100 characters");
     }
 
     public void setBirthday(LocalDate birthday)
@@ -96,6 +100,8 @@ public class Person
         return birthday;
     }
 
+    public String toString()
+    {
+        return String.format("%s %s age: %d years", firstName,lastName, getAge());
+    }
 }
-
-
