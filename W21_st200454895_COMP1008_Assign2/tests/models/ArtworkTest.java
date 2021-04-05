@@ -16,16 +16,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ArtworkTest
 {
-    Artwork artwork;
-    ArrayList<String> unchartedStatus;
+    private Artwork artwork;
 
     @BeforeEach
     void setUp()
     {
-        unchartedStatus=new ArrayList<>();
-        unchartedStatus.add("Display");
-
-        artwork=new Artwork(1,"LA KERMESSE OU NOCE AU VILLAGE","Pierre Paul Rubens", unchartedStatus, 1635, 10000000);
+        artwork=new Artwork(1,"LA KERMESSE OU NOCE AU VILLAGE","Pierre Paul Rubens", 1635,ArtCategory.Painting, 10000000,ArtStatus.Display);
     }
 
     @Test
@@ -81,20 +77,6 @@ class ArtworkTest
     }
 
     @Test
-    void setArtStatus()
-    {
-        assertEquals("Display",unchartedStatus.get(0));
-    }
-
-    @Test
-    void setArtStatusInvalid()
-    {
-        ArrayList<String>wrongStatus=new ArrayList<>();
-        wrongStatus.add("Stolen");
-        assertThrows(IllegalArgumentException.class,()->artwork=new Artwork(1,"LA KERMESSE OU NOCE AU VILLAGE","Pierre Paul Rubens", wrongStatus, 1635, 10000000));
-    }
-
-    @Test
     void setArtCreationDate()
     {
         artwork.setArtCreationDate(1936);
@@ -108,10 +90,22 @@ class ArtworkTest
     }
 
     @Test
+    void setArtCategory()
+    {
+        assertEquals("Painting",artwork.getArtCategory());
+    }
+
+    @Test
+    void setArtStatus()
+    {
+        assertEquals("Display",artwork.getArtStatus());
+    }
+
+    @Test
     void setArtPrice()
     {
         artwork.setArtPrice(1200000);
-        assertEquals("$1,200,000.00", artwork.getArtPrice());
+        assertEquals(1200000, artwork.getArtPrice());
     }
 
     @Test

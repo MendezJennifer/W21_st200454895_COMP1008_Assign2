@@ -16,16 +16,36 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PaintingTest
 {
-    Painting painting;
-    ArrayList<String> unchartedStatus;
+    private Painting painting;
 
     @BeforeEach
     void setUp()
     {
-        unchartedStatus=new ArrayList<>();
-        unchartedStatus.add("Display");
+        painting=new Painting(1,"LA KERMESSE OU NOCE AU VILLAGE","Pierre Paul Rubens", 1635, ArtCategory.Painting,10000000, ArtStatus.Transit,"oil on canvas", "landscape");
+    }
 
-        painting=new Painting(1,"LA KERMESSE OU NOCE AU VILLAGE","Pierre Paul Rubens", unchartedStatus, 1635, 10000000, "oil on canvas", "landscape");
+    @Test
+    void setPaintingCategory()
+    {
+        assertEquals("Painting", painting.getArtCategory());
+    }
+
+    @Test
+    void setPaintingCategoryInvalid()
+    {
+        assertThrows(IllegalArgumentException.class,()->painting.setPaintingCategory("Sculpture"));
+    }
+
+    @Test
+    void setPaintingCategoryInvalidEmpty()
+    {
+        assertThrows(IllegalArgumentException.class,()->painting.setPaintingCategory(""));
+    }
+
+    @Test
+    void setPaintingCategoryInvalidNumbers()
+    {
+        assertThrows(IllegalArgumentException.class,()->painting.setPaintingCategory("12Painting"));
     }
 
     @Test

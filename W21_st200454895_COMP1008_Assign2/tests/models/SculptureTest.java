@@ -17,15 +17,35 @@ import static org.junit.jupiter.api.Assertions.*;
 class SculptureTest
 {
     Sculpture sculpture;
-    ArrayList<String> unchartedStatus;
 
     @BeforeEach
     void setUp()
     {
-        unchartedStatus=new ArrayList<>();
-        unchartedStatus.add("Display");
+        sculpture=new Sculpture(2,"mercure volant","Jean de Bologne dit Giambologna", 1574, ArtCategory.Sculpture,100051, ArtStatus.Transit,"Bronze", 1.80);
+    }
 
-        sculpture=new Sculpture(2,"mercure volant","Jean de Bologne dit Giambologna", unchartedStatus, 1574, 100051, "Bronze", 1.80);
+    @Test
+    void setSculptureCategory()
+    {
+        assertEquals("Sculpture", sculpture.getArtCategory());
+    }
+
+    @Test
+    void setSculptureCategoryInvalid()
+    {
+        assertThrows(IllegalArgumentException.class,()->sculpture.setSculptureCategory("Painting"));
+    }
+
+    @Test
+    void setSculptureCategoryInvalidEmpty()
+    {
+        assertThrows(IllegalArgumentException.class,()->sculpture.setSculptureCategory(""));
+    }
+
+    @Test
+    void setSculptureCategoryInvalidNumbers()
+    {
+        assertThrows(IllegalArgumentException.class,()->sculpture.setSculptureCategory("Sculpture12"));
     }
 
     @Test
@@ -57,7 +77,7 @@ class SculptureTest
     void setSculptureHeight()
     {
         sculpture.setSculptureHeight(2.67);
-        assertEquals("2.67 m",sculpture.getSculptureHeight());
+        assertEquals(2.67,sculpture.getSculptureHeight());
     }
 
     @Test

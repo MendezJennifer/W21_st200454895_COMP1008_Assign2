@@ -14,11 +14,22 @@ public class Sculpture extends Artwork
     private String sculptureMaterial;
     private double sculptureHeight;
 
-    public Sculpture(int artID, String artTitle, String artAuthor, ArrayList<String> artStatus, int artCreationDate, double artPrice, String sculptureMaterial, double sculptureHeight)
-    {
-        super(artID, artTitle, artAuthor, artStatus, artCreationDate, artPrice);
+    public Sculpture(int artID, String artTitle, String artAuthor, int artCreationDate, Enum ArtCategory, double artPrice, Enum ArtStatus, String sculptureMaterial, double sculptureHeight) {
+        super(artID, artTitle, artAuthor, artCreationDate, ArtCategory, artPrice, ArtStatus);
         setSculptureMaterial(sculptureMaterial);
         setSculptureHeight(sculptureHeight);
+    }
+
+    /**
+     * Method that ensures all the sculptures are classified under the Sculpture category
+     * @param ArtCategory
+     */
+    public void setSculptureCategory(Object ArtCategory)
+    {
+        if(ArtCategory.equals("Sculpture"))
+            this.ArtCategory=ArtCategory;
+        else
+            throw new IllegalArgumentException("Please select Sculpture as the category for this object");
     }
 
     /**
@@ -50,8 +61,9 @@ public class Sculpture extends Artwork
         return sculptureMaterial;
     }
 
-    public String getSculptureHeight()
+    public double getSculptureHeight()
     {
-        return String.format("%.2f m",sculptureHeight);
+        return sculptureHeight;
+        //return String.format("%.2f m",sculptureHeight);
     }
 }

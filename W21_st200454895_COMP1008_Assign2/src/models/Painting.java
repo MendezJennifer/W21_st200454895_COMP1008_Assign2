@@ -13,10 +13,22 @@ public class Painting extends Artwork
 {
     private String paintingTechnique,paintingType;
 
-    public Painting(int artID, String artTitle, String artAuthor, ArrayList<String> artStatus, int artCreationDate, double artPrice, String paintingTechnique, String paintingType) {
-        super(artID, artTitle, artAuthor, artStatus, artCreationDate, artPrice);
+    public Painting(int artID, String artTitle, String artAuthor, int artCreationDate, Enum ArtCategory, double artPrice, Enum ArtStatus, String paintingTechnique, String paintingType) {
+        super(artID, artTitle, artAuthor, artCreationDate, ArtCategory, artPrice, ArtStatus);
         setPaintingTechnique(paintingTechnique);
         setPaintingType(paintingType);
+    }
+
+    /**
+     * Method that ensures all the paintings are classified under the Painting category
+     * @param ArtCategory
+     */
+    public void setPaintingCategory(Object ArtCategory)
+    {
+        if(ArtCategory.equals("Painting"))
+            this.ArtCategory=ArtCategory;
+        else
+            throw new IllegalArgumentException("Please select Painting as the category for this object");
     }
 
     /**

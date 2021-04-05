@@ -7,35 +7,32 @@
 
 package models;
 import javafx.scene.image.Image;
-
-import java.text.NumberFormat;
 import java.time.Year;
-import java.util.ArrayList;
-import java.util.Locale;
-
 
 public class Artwork
 {
     private int artID;
     private String artTitle,artAuthor;
-    private ArrayList<String> artStatus;
     private int artCreationDate;
+    public Object ArtCategory;
     private double artPrice;
+    public Object ArtStatus;
     private Image artImage;
 
-    public Artwork(int artID,String artTitle, String artAuthor, ArrayList<String> artStatus, int artCreationDate, double artPrice)
+    public Artwork(int artID,String artTitle, String artAuthor, int artCreationDate, Enum ArtCategory,double artPrice,Enum ArtStatus)
     {
         setArtID(artID);
         setArtTitle(artTitle);
         setArtAuthor(artAuthor);
         setArtCreationDate(artCreationDate);
+        setArtCategory(ArtCategory);
         setArtPrice(artPrice);
-        setArtStatus(artStatus);
+        setArtStatus(ArtStatus);
         //setArtImage();
     }
 
     /**
-     * Methos that ensures the artId is greater than zero
+     * Method that ensures the artId is greater than zero
      * @param artID
      */
     public void setArtID(int artID)
@@ -58,7 +55,7 @@ public class Artwork
     }
 
     /**
-     * Method that ensures the author name is at least 2 characters long and begins with an uppercase letter, and doesn't contain numeric characters
+     * Method that ensures the author name is at least 2 characters long and begins with an uppercase letter
      * @param artAuthor
      */
     public void setArtAuthor(String artAuthor)
@@ -70,46 +67,23 @@ public class Artwork
             throw new IllegalArgumentException("Author name must be at least two characters long, and cannot contain numeric characters.");
     }
 
-    /**
-     * Method that will return a list of valid artwork categories
-     * @return categories
-     */
-    public static ArrayList<String> obtainCategories()
-    {
-        ArrayList<String> categories=new ArrayList<>();
-        categories.add("Painting");
-        categories.add("Sculpture");
-
-        return categories;
-    }
-
-    /**
-     * Method that will return a list of valid artwork status
-     * @return artStatus
-     */
-    public static ArrayList<String> obtainStatus()
-    {
-        ArrayList<String> status=new ArrayList<>();
-        status.add("Sold");
-        status.add("Display");
-        status.add("Restoration");
-
-        return status;
-    }
 
     /**
      * Method that ensures the argument only contains valid status
-     * @param status
+     * @param ArtStatus
      */
-    public void setArtStatus(ArrayList<String> status)
+    public void setArtStatus(Object ArtStatus)
     {
-        ArrayList<String> validStatus=obtainStatus();
-        for(String artStatus:status)
-        {
-            if (!validStatus.contains(artStatus))
-                throw new IllegalArgumentException(artStatus + " is not valid. Please choose from the following list: "+validStatus);
-        }
-        this.artStatus = artStatus;
+        this.ArtStatus = ArtStatus;
+    }
+
+    /**
+     * Method that ensures the argument only contains valid categories
+     * @param ArtCategory
+     */
+    public void setArtCategory(Object ArtCategory)
+    {
+        this.ArtCategory=ArtCategory;
     }
 
     /**
@@ -134,9 +108,7 @@ public class Artwork
         this.artPrice = artPrice;
     }
 
-    /**
-     * Method that uses the artID to establish the correct image to load
-     */
+
     public void setArtImage()
     {
         String filePath=String.format("images/%d.jpg",artID);
@@ -158,9 +130,9 @@ public class Artwork
         return artAuthor;
     }
 
-    public ArrayList<String> getArtStatus()
+    public String getArtStatus()
     {
-        return artStatus;
+        return ArtStatus.toString();
     }
 
     public int getArtCreationDate()
@@ -168,9 +140,12 @@ public class Artwork
         return artCreationDate;
     }
 
-    public String getArtPrice()
+    public String getArtCategory()
+    {return ArtCategory.toString();}
+
+    public double getArtPrice()
     {
-        return NumberFormat.getCurrencyInstance(Locale.CANADA).format(artPrice);
+        return artPrice;
     }
 
     public Image getArtImage()
