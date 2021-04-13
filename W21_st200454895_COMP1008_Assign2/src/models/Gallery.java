@@ -23,19 +23,25 @@ public class Gallery
         gallery=new ArrayList<>();
     }
 
-    public void addArtwork(Sculpture sculpture)
+    public void addArtwork(Artwork artwork)
     {
-        gallery.add(sculpture);
+        gallery.add(artwork);
     }
-    public void addArtwork(Painting painting)
+
+    public Artwork getArtwork(int index)
     {
-        gallery.add(painting);
+        return gallery.get(index);
     }
     public int countArtInventory()
     {
         return gallery.size();
     }
 
+
+    /**
+     * This method will calculate the total value of the artwork inventory
+     * @return
+     */
     public double calculateArtInventoryValue()
     {
         double totalArtValue=0;
@@ -44,6 +50,11 @@ public class Gallery
         return totalArtValue;
     }
 
+    /**
+     * This method will return ArrayList of artworks with the same author
+     * @param author
+     * @return
+     */
     public ArrayList<Artwork> getArtByAuthor(String author)
     {
         author=author.toLowerCase();
@@ -54,7 +65,11 @@ public class Gallery
         return artByAuthor;
     }
 
-
+    /**
+     * This method will return an ArrayList of artworks with the same category
+     * @param cat
+     * @return
+     */
     public ArrayList<Artwork> getArtByCat(String cat)
     {
         ArrayList<Artwork> artByCat=new ArrayList<>();
@@ -64,6 +79,12 @@ public class Gallery
         return artByCat;
     }
 
+    /**
+     * This method will return an ArrayList of artworks with a creation date between date1 and date2
+     * @param date1
+     * @param date2
+     * @return
+     */
     public ArrayList<Artwork> getArtByDate(int date1, int date2)
     {
         ArrayList<Artwork> artByDate=new ArrayList<>();
@@ -73,6 +94,11 @@ public class Gallery
         return artByDate;
     }
 
+    /**
+     * This method will return an ArrayList of artworks with the same status
+     * @param status
+     * @return
+     */
     public ArrayList<Artwork> getArtByStatus(String status)
     {
         status=status.substring(0,1).toUpperCase()+status.substring(1).toLowerCase();

@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SculptureViewController">
+<AnchorPane prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PaintingViewController">
     <children>
         <Label fx:id="titleLabel" layoutX="48.0" layoutY="29.0" prefHeight="54.0" prefWidth="322.0" text="Label">
             <font>
@@ -48,12 +48,12 @@
                                 <Font size="24.0" />
                             </font>
                         </Label>
-                        <Label fx:id="materialLabel" text="Label" GridPane.rowIndex="4">
+                        <Label fx:id="techniqueLabel" text="Label" GridPane.rowIndex="4">
                             <font>
                                 <Font size="24.0" />
                             </font>
                         </Label>
-                        <Label fx:id="heightLabel" text="Label" GridPane.rowIndex="5">
+                        <Label fx:id="typeLabel" text="Label" GridPane.rowIndex="5">
                             <font>
                                 <Font size="24.0" />
                             </font>
@@ -67,12 +67,12 @@
                                 <Font size="18.0" />
                             </font>
                         </Button>
-                        <Button mnemonicParsing="false" text="-&gt;">
+                        <Button mnemonicParsing="false" onAction="#nextPainting" text="-&gt;">
                             <font>
                                 <Font size="18.0" />
                             </font>
                         </Button>
-                        <Button mnemonicParsing="false" text="Gallery">
+                        <Button mnemonicParsing="false" onAction="#goToGallery" text="Gallery">
                             <font>
                                 <Font size="18.0" />
                             </font>
@@ -82,7 +82,7 @@
             </children>
         </VBox>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#66b8ffb8" height="308.0" layoutX="14.0" layoutY="162.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="333.0" />
-        <ImageView fitHeight="310.0" fitWidth="322.0" layoutX="48.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="paintingImageView" fitHeight="310.0" fitWidth="322.0" layoutX="48.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../../../Users/bluem/Pictures/New%20folder%20(1)/a2N79dO_460s.jpg" />
             </image>
@@ -90,4 +90,3 @@
         <Line endX="215.0" layoutX="149.0" layoutY="86.0" startX="-100.0" stroke="#69bbffb8" strokeWidth="15.0" />
     </children>
 </AnchorPane>
-

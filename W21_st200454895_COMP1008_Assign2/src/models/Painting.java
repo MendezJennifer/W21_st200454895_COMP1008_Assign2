@@ -7,13 +7,11 @@
 
 package models;
 
-import java.util.ArrayList;
-
 public class Painting extends Artwork
 {
     private String paintingTechnique,paintingType;
 
-    public Painting(int artID, String artTitle, String artAuthor, int artCreationDate, Enum ArtCategory, double artPrice, Enum ArtStatus, String paintingTechnique, String paintingType) {
+    public Painting(int artID, String artTitle, String artAuthor, int artCreationDate, String ArtCategory, double artPrice, String ArtStatus, String paintingTechnique, String paintingType) {
         super(artID, artTitle, artAuthor, artCreationDate, ArtCategory, artPrice, ArtStatus);
         setPaintingTechnique(paintingTechnique);
         setPaintingType(paintingType);

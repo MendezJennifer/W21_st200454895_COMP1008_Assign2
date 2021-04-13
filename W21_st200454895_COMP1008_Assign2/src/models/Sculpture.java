@@ -7,14 +7,12 @@
 
 package models;
 
-import java.util.ArrayList;
-
 public class Sculpture extends Artwork
 {
     private String sculptureMaterial;
     private double sculptureHeight;
 
-    public Sculpture(int artID, String artTitle, String artAuthor, int artCreationDate, Enum ArtCategory, double artPrice, Enum ArtStatus, String sculptureMaterial, double sculptureHeight) {
+    public Sculpture(int artID, String artTitle, String artAuthor, int artCreationDate, String ArtCategory, double artPrice, String ArtStatus, String sculptureMaterial, double sculptureHeight) {
         super(artID, artTitle, artAuthor, artCreationDate, ArtCategory, artPrice, ArtStatus);
         setSculptureMaterial(sculptureMaterial);
         setSculptureHeight(sculptureHeight);
