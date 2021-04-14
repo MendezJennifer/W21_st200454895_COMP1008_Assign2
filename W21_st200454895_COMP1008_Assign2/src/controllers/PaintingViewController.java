@@ -23,6 +23,9 @@ import java.util.ResourceBundle;
 public class PaintingViewController implements Initializable
 {
     @FXML
+    private Label paintingCount;
+
+    @FXML
     private Label titleLabel;
 
     @FXML
@@ -43,8 +46,6 @@ public class PaintingViewController implements Initializable
     @FXML
     private Label typeLabel;
 
-    @FXML
-    private ImageView paintingImageView;
 
     private int index=0;
 
@@ -58,7 +59,8 @@ public class PaintingViewController implements Initializable
     @FXML
     private void showData()
     {
-        try {
+        try
+        {
                 titleLabel.setText(DBUtility.getPaintingsFromDB().get(index).getArtTitle());
                 authorLabel.setText(DBUtility.getPaintingsFromDB().get(index).getArtAuthor());
                 dateLabel.setText(Integer.toString(DBUtility.getPaintingsFromDB().get(index).getArtCreationDate()));
@@ -66,16 +68,18 @@ public class PaintingViewController implements Initializable
                 statusLabel.setText(DBUtility.getPaintingsFromDB().get(index).getArtStatus());
                 techniqueLabel.setText(DBUtility.getPaintingsFromDB().get(index).getPaintingTechnique());
                 typeLabel.setText(DBUtility.getPaintingsFromDB().get(index).getPaintingType());
-                //paintingImageView.setImage(DBUtility.getPaintingsFromDB().get(index).getPaintingImage());
+                paintingCount.setText(String.format("Paintings: %d",DBUtility.getPaintingsFromDB().size()));
 
-        } catch (SQLException throwable)
+        }
+        catch (SQLException throwable)
         {
             throwable.printStackTrace();
         }
     }
 
     @FXML
-    private void lastPainting(ActionEvent actionEvent) throws SQLException {
+    private void lastPainting(ActionEvent actionEvent) throws SQLException
+    {
         if(index>0)
         {
             index -= 1;
@@ -88,7 +92,8 @@ public class PaintingViewController implements Initializable
     }
 
     @FXML
-    private void nextPainting(ActionEvent actionEvent) throws SQLException {
+    private void nextPainting(ActionEvent actionEvent) throws SQLException
+    {
         if (index < DBUtility.getPaintingsFromDB().size()-1)
         {
             index += 1;

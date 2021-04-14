@@ -22,6 +22,9 @@ import java.util.ResourceBundle;
 public class SculptureViewController implements Initializable
 {
     @FXML
+    private Label sculptureCount;
+
+    @FXML
     private Label titleLabel;
 
     @FXML
@@ -42,8 +45,6 @@ public class SculptureViewController implements Initializable
     @FXML
     private Label heightLabel;
 
-    @FXML
-    private ImageView sculptureImageView;
 
     private int index=0;
 
@@ -56,7 +57,8 @@ public class SculptureViewController implements Initializable
     @FXML
     private void showData()
     {
-        try {
+        try
+        {
             titleLabel.setText(DBUtility.getSculpturesFromDB().get(index).getArtTitle());
             authorLabel.setText(DBUtility.getSculpturesFromDB().get(index).getArtAuthor());
             dateLabel.setText(Integer.toString(DBUtility.getSculpturesFromDB().get(index).getArtCreationDate()));
@@ -64,16 +66,18 @@ public class SculptureViewController implements Initializable
             statusLabel.setText(DBUtility.getSculpturesFromDB().get(index).getArtStatus());
             materialLabel.setText(DBUtility.getSculpturesFromDB().get(index).getSculptureMaterial());
             heightLabel.setText(Double.toString(DBUtility.getSculpturesFromDB().get(index).getSculptureHeight()));
-            //sculptureImageView.setImage(DBUtility.getSculpturesFromDB().get(index).getSculptureImage());
+            sculptureCount.setText(String.format("Sculptures: %d",DBUtility.getSculpturesFromDB().size()));
 
-        } catch (SQLException throwable)
+        }
+        catch (SQLException throwable)
         {
             throwable.printStackTrace();
         }
     }
 
     @FXML
-    private void lastSculpture(ActionEvent actionEvent) throws SQLException {
+    private void lastSculpture(ActionEvent actionEvent) throws SQLException
+    {
         if(index>0)
         {
             index -= 1;
@@ -86,7 +90,8 @@ public class SculptureViewController implements Initializable
     }
 
     @FXML
-    private void nextSculpture(ActionEvent actionEvent) throws SQLException {
+    private void nextSculpture(ActionEvent actionEvent) throws SQLException
+    {
         if (index < DBUtility.getPaintingsFromDB().size()-1)
         {
             index += 1;

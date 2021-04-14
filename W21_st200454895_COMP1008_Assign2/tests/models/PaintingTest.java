@@ -10,7 +10,6 @@ package models;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,32 +20,9 @@ class PaintingTest
     @BeforeEach
     void setUp()
     {
-        painting=new Painting(1,"LA KERMESSE OU NOCE AU VILLAGE","Pierre Paul Rubens", 1635, ArtCategory.Painting,10000000, ArtStatus.Transit,"oil on canvas", "landscape");
+        painting=new Painting(1,"LA KERMESSE OU NOCE AU VILLAGE","Pierre Paul Rubens", 1635, Painting.PAINTINGCAT,10000000, ArtStatus.Transit.toString(),"oil on canvas", "landscape");
     }
 
-    @Test
-    void setPaintingCategory()
-    {
-        assertEquals("Painting", painting.getArtCategory());
-    }
-
-    @Test
-    void setPaintingCategoryInvalid()
-    {
-        assertThrows(IllegalArgumentException.class,()->painting.setPaintingCategory("Sculpture"));
-    }
-
-    @Test
-    void setPaintingCategoryInvalidEmpty()
-    {
-        assertThrows(IllegalArgumentException.class,()->painting.setPaintingCategory(""));
-    }
-
-    @Test
-    void setPaintingCategoryInvalidNumbers()
-    {
-        assertThrows(IllegalArgumentException.class,()->painting.setPaintingCategory("12Painting"));
-    }
 
     @Test
     void setPaintingTechnique()

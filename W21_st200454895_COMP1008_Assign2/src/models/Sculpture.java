@@ -7,24 +7,22 @@
 
 package models;
 
-import javafx.scene.image.Image;
-
 public class Sculpture extends Artwork
 {
     private String sculptureMaterial;
     private double sculptureHeight;
     public static final String SCULPTURECAT="Sculpture";
-    private Image sculptureImage;
 
 
-    public Sculpture(int artID, String artTitle, String artAuthor, int artCreationDate, String ArtCategory, double artPrice, String ArtStatus, String sculptureMaterial, double sculptureHeight) {
+    public Sculpture(int artID, String artTitle, String artAuthor, int artCreationDate, String ArtCategory, double artPrice, String ArtStatus, String sculptureMaterial, double sculptureHeight)
+    {
         super(artID, artTitle, artAuthor, artCreationDate, ArtCategory, artPrice, ArtStatus);
-        setSculptureImage();
         setSculptureMaterial(sculptureMaterial);
         setSculptureHeight(sculptureHeight);
     }
 
-    public Sculpture(String artTitle, String artAuthor, int artCreationDate, double artPrice, String ArtStatus, String sculptureMaterial, double sculptureHeight) {
+    public Sculpture(String artTitle, String artAuthor, int artCreationDate, double artPrice, String ArtStatus, String sculptureMaterial, double sculptureHeight)
+    {
         super(artTitle, artAuthor, artCreationDate, artPrice, ArtStatus);
         setSculptureMaterial(sculptureMaterial);
         setSculptureHeight(sculptureHeight);
@@ -54,16 +52,6 @@ public class Sculpture extends Artwork
         this.sculptureHeight = sculptureHeight;
     }
 
-    public void setSculptureImage()
-    {
-        String filePath = String.format("images/s%d.png",getArtID());
-        this.sculptureImage = new Image(filePath);
-    }
-
-    public Image getSculptureImage() {
-        return sculptureImage;
-    }
-
     public String getSculptureMaterial()
     {
         return sculptureMaterial;
@@ -72,6 +60,5 @@ public class Sculpture extends Artwork
     public double getSculptureHeight()
     {
         return sculptureHeight;
-        //return String.format("%.2f m",sculptureHeight);
     }
 }

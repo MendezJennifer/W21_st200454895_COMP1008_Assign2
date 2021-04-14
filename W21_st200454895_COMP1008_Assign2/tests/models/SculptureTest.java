@@ -10,8 +10,6 @@ package models;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class SculptureTest
@@ -21,31 +19,7 @@ class SculptureTest
     @BeforeEach
     void setUp()
     {
-        sculpture=new Sculpture(2,"mercure volant","Jean de Bologne dit Giambologna", 1574, ArtCategory.Sculpture,100051, ArtStatus.Transit,"Bronze", 1.80);
-    }
-
-    @Test
-    void setSculptureCategory()
-    {
-        assertEquals("Sculpture", sculpture.getArtCategory());
-    }
-
-    @Test
-    void setSculptureCategoryInvalid()
-    {
-        assertThrows(IllegalArgumentException.class,()->sculpture.setSculptureCategory("Painting"));
-    }
-
-    @Test
-    void setSculptureCategoryInvalidEmpty()
-    {
-        assertThrows(IllegalArgumentException.class,()->sculpture.setSculptureCategory(""));
-    }
-
-    @Test
-    void setSculptureCategoryInvalidNumbers()
-    {
-        assertThrows(IllegalArgumentException.class,()->sculpture.setSculptureCategory("Sculpture12"));
+        sculpture=new Sculpture(2,"mercure volant","Jean de Bologne dit Giambologna", 1574, Sculpture.SCULPTURECAT,100051, ArtStatus.Transit.toString(),"Bronze", 1.80);
     }
 
     @Test

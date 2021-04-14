@@ -7,22 +7,20 @@
 
 package models;
 
-import javafx.scene.image.Image;
-
 public class Painting extends Artwork
 {
     private String paintingTechnique,paintingType;
     public static final String PAINTINGCAT="Painting";
-    private Image paintingImage;
 
-    public Painting(int artID, String artTitle, String artAuthor, int artCreationDate, String ArtCategory, double artPrice, String ArtStatus, String paintingTechnique, String paintingType) {
+    public Painting(int artID, String artTitle, String artAuthor, int artCreationDate, String ArtCategory, double artPrice, String ArtStatus, String paintingTechnique, String paintingType)
+    {
         super(artID, artTitle, artAuthor, artCreationDate, ArtCategory, artPrice, ArtStatus);
         setPaintingTechnique(paintingTechnique);
         setPaintingType(paintingType);
-        setPaintingImage();
     }
 
-    public Painting(String artTitle, String artAuthor, int artCreationDate, double artPrice, String ArtStatus, String paintingTechnique, String paintingType) {
+    public Painting(String artTitle, String artAuthor, int artCreationDate, double artPrice, String ArtStatus, String paintingTechnique, String paintingType)
+    {
         super(artTitle, artAuthor, artCreationDate, artPrice, ArtStatus);
         setPaintingTechnique(paintingTechnique);
         setPaintingType(paintingType);
@@ -53,16 +51,6 @@ public class Painting extends Artwork
             this.paintingType = paintingType.substring(0,1).toUpperCase()+paintingType.substring(1);
         else
             throw new IllegalArgumentException("Painting type must be at least two characters long, and cannot contain numeric characters.");
-    }
-
-    public void setPaintingImage()
-    {
-        String filePath = String.format("images/p%d.png",getArtID());
-        this.paintingImage = new Image(filePath);
-    }
-
-    public Image getPaintingImage() {
-        return paintingImage;
     }
 
     public String getPaintingTechnique()

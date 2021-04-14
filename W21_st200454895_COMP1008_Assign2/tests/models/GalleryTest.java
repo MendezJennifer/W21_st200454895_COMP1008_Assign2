@@ -7,10 +7,13 @@
 
 package models;
 
+import javafx.embed.swing.JFXPanel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,20 +24,32 @@ class GalleryTest
     private Sculpture sculpture1;
     private Sculpture sculpture2;
     private Gallery gallery;
-    private ArrayList<String> unchartedStatus;
+    private JFXPanel panel=new JFXPanel();
 
     @BeforeEach
     void setUp()
     {
-        painting1=new Painting(1,"LA KERMESSE OU NOCE AU VILLAGE","Pierre Paul Rubens", 1635, ArtCategory.Painting,10000000, ArtStatus.Sold,"oil on canvas", "landscape");
-        painting2=new Painting(2,"A landscape with a sheperd and his flock","Pierre Paul Rubens", 1638, ArtCategory.Painting, 10004500, ArtStatus.Display,"oil on oak", "landscape");
-        sculpture1=new Sculpture(3,"mercure volant","Jean de Bologne dit Giambologna",  1574, ArtCategory.Sculpture,100051, ArtStatus.Restoration,"Bronze", 1.80);
-        sculpture2=new Sculpture(4,"abduction of a sabine woman","Jean de Bologne dit Giambologna",  1579, ArtCategory.Sculpture,100851, ArtStatus.Restoration, "marble", 4.10);
+        painting1=new Painting(1,"LA KERMESSE OU NOCE AU VILLAGE","Pierre Paul Rubens", 1635, Painting.PAINTINGCAT,10000000, ArtStatus.Sold.toString(),"oil on canvas", "landscape");
+        painting2=new Painting(2,"A landscape with a sheperd and his flock","Pierre Paul Rubens", 1638, Painting.PAINTINGCAT, 10004500, ArtStatus.Display.toString(),"oil on oak", "landscape");
+        sculpture1=new Sculpture(3,"mercure volant","Jean de Bologne dit Giambologna",  1574, Sculpture.SCULPTURECAT,100051, ArtStatus.Restoration.toString(),"Bronze", 1.80);
+        sculpture2=new Sculpture(4,"abduction of a sabine woman","Jean de Bologne dit Giambologna",  1579, Sculpture.SCULPTURECAT,100851, ArtStatus.Restoration.toString(), "marble", 4.10);
         gallery=new Gallery();
         gallery.addArtwork(painting1);
         gallery.addArtwork(painting2);
         gallery.addArtwork(sculpture1);
         gallery.addArtwork(sculpture2);
+    }
+
+    @Test
+    void getArtwork()
+    {
+        assertEquals("ABDUCTION OF A SABINE WOMAN",gallery.getArtwork(3).getArtTitle());
+    }
+
+    @Test
+    void getArtworkOutOfBounds()
+    {
+        assertThrows(IndexOutOfBoundsException.class,()->gallery.getArtwork(7).getArtTitle());
     }
 
     @Test

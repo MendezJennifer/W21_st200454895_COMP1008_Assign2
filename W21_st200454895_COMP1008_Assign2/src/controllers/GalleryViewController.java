@@ -26,7 +26,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class GalleryViewController implements Initializable {
+public class GalleryViewController implements Initializable
+{
     @FXML
     private Label galleryToStringLabel;
 

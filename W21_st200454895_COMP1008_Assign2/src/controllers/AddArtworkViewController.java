@@ -17,7 +17,8 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class AddArtworkViewController implements Initializable {
+public class AddArtworkViewController implements Initializable
+{
 
     @FXML
     private TextField paintingTitleInput;
@@ -65,7 +66,8 @@ public class AddArtworkViewController implements Initializable {
     private Label msgLabel;
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
         paintingStatusInput.getItems().add(ArtStatus.Sold);
         paintingStatusInput.getItems().add(ArtStatus.Display);
         paintingStatusInput.getItems().add(ArtStatus.Restoration);
@@ -77,11 +79,14 @@ public class AddArtworkViewController implements Initializable {
         sculptureStatusInput.getItems().add(ArtStatus.Transit);
     }
 
+
     @FXML
-    private void addPainting() {
+    private void addPainting()
+    {
         if (fieldsArePopulatedPainting())
         {
-            try {
+            try
+            {
                 Painting newPainting = new Painting(paintingTitleInput.getText(),
                         paintingAuthorInput.getText(),
                         Integer.parseInt(paintingCreationYearInput.getText()),
@@ -92,7 +97,9 @@ public class AddArtworkViewController implements Initializable {
                 int artID = DBUtility.insertPaintingIntoDB(newPainting);
                 newPainting.setArtID(artID);
                 msgLabel.setText(newPainting.toString());
-            } catch (IllegalArgumentException | SQLException e) {
+            }
+            catch (IllegalArgumentException | SQLException e)
+            {
                 msgLabel.setText(e.getMessage());
             }
         }
@@ -125,16 +132,18 @@ public class AddArtworkViewController implements Initializable {
         if (errMsg.equals("The following fields are empty: "))
             return true;
 
-        //there was at least 1 empty field
+        //If there are 1 or more empty fields
         msgLabel.setText(errMsg.substring(0, errMsg.length()-2));
         return false;
     }
 
     @FXML
-    private void addSculpture() {
+    private void addSculpture()
+    {
         if (fieldsArePopulatedSculpture())
         {
-            try {
+            try
+            {
                 Sculpture newSculpture = new Sculpture(SculptureTitleInput.getText(),
                         sculptureAuthorInput.getText(),
                         Integer.parseInt(sculptureCreationYearInput.getText()),
@@ -145,7 +154,9 @@ public class AddArtworkViewController implements Initializable {
                 int artID = DBUtility.insertSculptureIntoDB(newSculpture);
                 newSculpture.setArtID(artID);
                 msgLabel.setText(newSculpture.toString());
-            } catch (IllegalArgumentException | SQLException e) {
+            }
+            catch (IllegalArgumentException | SQLException e)
+            {
                 msgLabel.setText(e.getMessage());
             }
         }
@@ -178,7 +189,7 @@ public class AddArtworkViewController implements Initializable {
         if (errMsg.equals("The following fields are empty: "))
             return true;
 
-        //there was at least 1 empty field
+        //If there are 1 or more empty fields
         msgLabel.setText(errMsg.substring(0, errMsg.length()-2));
         return false;
     }

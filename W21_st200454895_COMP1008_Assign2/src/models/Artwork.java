@@ -6,7 +6,6 @@
  */
 
 package models;
-import javafx.scene.image.Image;
 import java.time.Year;
 
 public class Artwork
@@ -14,18 +13,17 @@ public class Artwork
     private int artID;
     private String artTitle,artAuthor;
     private int artCreationDate;
-    public Object ArtCategory;
+    public String artCategory;
     private double artPrice;
     public Object ArtStatus;
-    private Image artImage;
 
-    public Artwork(int artID,String artTitle, String artAuthor, int artCreationDate, String ArtCategory,double artPrice,String ArtStatus)
+    public Artwork(int artID,String artTitle, String artAuthor, int artCreationDate, String artCategory,double artPrice,String ArtStatus)
     {
         setArtID(artID);
         setArtTitle(artTitle);
         setArtAuthor(artAuthor);
         setArtCreationDate(artCreationDate);
-        setArtCategory(ArtCategory);
+        setArtCategory(artCategory);
         setArtPrice(artPrice);
         setArtStatus(ArtStatus);
     }
@@ -74,7 +72,6 @@ public class Artwork
             throw new IllegalArgumentException("Author name must be at least two characters long, and cannot contain numeric characters.");
     }
 
-
     /**
      * Method that ensures the argument only contains valid status
      * @param ArtStatus
@@ -86,11 +83,14 @@ public class Artwork
 
     /**
      * Method that ensures the argument only contains valid categories
-     * @param ArtCategory
+     * @param artCategory
      */
-    public void setArtCategory(Object ArtCategory)
+    public void setArtCategory(String artCategory)
     {
-        this.ArtCategory=ArtCategory.toString();
+        if(artCategory.equals(Painting.PAINTINGCAT) || artCategory.equals(Sculpture.SCULPTURECAT))
+            this.artCategory=artCategory;
+        else
+            throw new IllegalArgumentException("Art Category must be Painting or Sculpture");
     }
 
     /**
@@ -141,7 +141,9 @@ public class Artwork
     }
 
     public String getArtCategory()
-    {return ArtCategory.toString();}
+    {
+        return artCategory;
+    }
 
     public double getArtPrice()
     {

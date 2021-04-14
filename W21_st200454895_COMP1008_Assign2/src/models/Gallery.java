@@ -8,12 +8,10 @@
 package models;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class Gallery
 {
     private ArrayList<Artwork> gallery;
-    private Object ArtStatus;
 
     /**
      * Constructor: create instance of Gallery class and initialize it with all the Artwork objects
@@ -23,20 +21,33 @@ public class Gallery
         gallery=new ArrayList<>();
     }
 
+    /**
+     * Method to add artworks(paintings and sculptures) to the Gallery
+     * @param artwork
+     */
     public void addArtwork(Artwork artwork)
     {
         gallery.add(artwork);
     }
 
+    /**
+     * Methos to get an Artwork from the gallery
+     * @param index
+     * @return
+     */
     public Artwork getArtwork(int index)
     {
         return gallery.get(index);
     }
+
+    /**
+     * Method to count the number of artworks inside the gallery
+     * @return
+     */
     public int countArtInventory()
     {
         return gallery.size();
     }
-
 
     /**
      * This method will calculate the total value of the artwork inventory
