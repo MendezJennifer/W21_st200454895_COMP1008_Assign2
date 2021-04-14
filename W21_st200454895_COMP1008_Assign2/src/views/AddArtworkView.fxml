@@ -137,25 +137,25 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="sculptureMaterialInput" text="Material:" GridPane.rowIndex="5">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="sculptureHeightInput" text="Height:" GridPane.rowIndex="6">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
                         <TextField fx:id="sculpturePriceInput" promptText="Enter sculpture price" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField promptText="Enter sculpture material" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <TextField promptText="Enter sculpture height" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <TextField fx:id="sculptureMaterialInput" promptText="Enter sculpture material" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <TextField fx:id="sculptureHeightInput" promptText="Enter sculpture height" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                         <Label text="Status:" GridPane.rowIndex="4">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
                         <ChoiceBox fx:id="sculptureStatusInput" prefHeight="26.0" prefWidth="212.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label layoutX="10.0" layoutY="137.0" text="Material:" GridPane.rowIndex="5">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="168.0" text="Height:" GridPane.rowIndex="6">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
                      </children>
                   </GridPane>
                   <Button alignment="CENTER" mnemonicParsing="false" onAction="#addSculpture" pickOnBounds="false" text="Add Sculpture" textAlignment="CENTER">
@@ -174,10 +174,11 @@
          </children>
       </HBox>
       <Line endX="205.60000610351562" endY="19.599998474121094" layoutX="159.0" layoutY="96.0" startX="205.60000610351562" startY="377.0" stroke="#69bbffb8" strokeWidth="5.0" />
-      <Button fx:id="goToGalleryView" layoutX="322.0" layoutY="487.0" mnemonicParsing="false" text="Gallery">
+      <Button layoutX="32.0" layoutY="478.0" mnemonicParsing="false" onAction="#goToGallery" text="Gallery">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
+      <Label fx:id="msgLabel" layoutX="129.0" layoutY="482.0" prefHeight="54.0" prefWidth="554.0" text="." wrapText="true" />
     </children>
 </AnchorPane>

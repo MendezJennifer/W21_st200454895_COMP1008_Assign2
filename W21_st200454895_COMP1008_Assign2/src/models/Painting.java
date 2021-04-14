@@ -7,27 +7,27 @@
 
 package models;
 
+import javafx.scene.image.Image;
+
 public class Painting extends Artwork
 {
     private String paintingTechnique,paintingType;
+    public static final String PAINTINGCAT="Painting";
+    private Image paintingImage;
 
     public Painting(int artID, String artTitle, String artAuthor, int artCreationDate, String ArtCategory, double artPrice, String ArtStatus, String paintingTechnique, String paintingType) {
         super(artID, artTitle, artAuthor, artCreationDate, ArtCategory, artPrice, ArtStatus);
         setPaintingTechnique(paintingTechnique);
         setPaintingType(paintingType);
+        setPaintingImage();
     }
 
-    /**
-     * Method that ensures all the paintings are classified under the Painting category
-     * @param ArtCategory
-     */
-    public void setPaintingCategory(Object ArtCategory)
-    {
-        if(ArtCategory.equals("Painting"))
-            this.ArtCategory=ArtCategory;
-        else
-            throw new IllegalArgumentException("Please select Painting as the category for this object");
+    public Painting(String artTitle, String artAuthor, int artCreationDate, double artPrice, String ArtStatus, String paintingTechnique, String paintingType) {
+        super(artTitle, artAuthor, artCreationDate, artPrice, ArtStatus);
+        setPaintingTechnique(paintingTechnique);
+        setPaintingType(paintingType);
     }
+
 
     /**
      * Method that ensures the painting technique is at least 2 characters long and begins with an uppercase letter, and doesn't contain numeric characters
@@ -53,6 +53,16 @@ public class Painting extends Artwork
             this.paintingType = paintingType.substring(0,1).toUpperCase()+paintingType.substring(1);
         else
             throw new IllegalArgumentException("Painting type must be at least two characters long, and cannot contain numeric characters.");
+    }
+
+    public void setPaintingImage()
+    {
+        String filePath = String.format("images/p%d.png",getArtID());
+        this.paintingImage = new Image(filePath);
+    }
+
+    public Image getPaintingImage() {
+        return paintingImage;
     }
 
     public String getPaintingTechnique()

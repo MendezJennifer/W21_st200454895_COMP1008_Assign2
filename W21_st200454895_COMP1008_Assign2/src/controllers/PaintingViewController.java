@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -45,33 +46,59 @@ public class PaintingViewController implements Initializable
     @FXML
     private ImageView paintingImageView;
 
+    private int index=0;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        try
-        {
-            titleLabel.setText(DBUtility.getPaintingsFromDB().get(0).getArtTitle());
-        }
-        catch (SQLException throwable)
+        showData();
+    }
+
+    @FXML
+    private void showData()
+    {
+        try {
+                titleLabel.setText(DBUtility.getPaintingsFromDB().get(index).getArtTitle());
+                authorLabel.setText(DBUtility.getPaintingsFromDB().get(index).getArtAuthor());
+                dateLabel.setText(Integer.toString(DBUtility.getPaintingsFromDB().get(index).getArtCreationDate()));
+                priceLabel.setText(Double.toString(DBUtility.getPaintingsFromDB().get(index).getArtPrice()));
+                statusLabel.setText(DBUtility.getPaintingsFromDB().get(index).getArtStatus());
+                techniqueLabel.setText(DBUtility.getPaintingsFromDB().get(index).getPaintingTechnique());
+                typeLabel.setText(DBUtility.getPaintingsFromDB().get(index).getPaintingType());
+                //paintingImageView.setImage(DBUtility.getPaintingsFromDB().get(index).getPaintingImage());
+
+        } catch (SQLException throwable)
         {
             throwable.printStackTrace();
         }
     }
 
-//    @FXML
-//    private void nextPainting() throws SQLException {
-//        //for(int i=0;i<DBUtility.getPaintingsFromDB().size();i++)
-//        //{
-//            //titleLabel.setText(DBUtility.getPaintingsFromDB().get(i).getArtTitle());
-//            //authorLabel.setText(DBUtility.getPaintingsFromDB().get(0).getArtAuthor());
-//            //dateLabel.setText(String.valueOf(DBUtility.getPaintingsFromDB().get(0).getArtCreationDate()));
-//            //priceLabel.setText(String.valueOf(DBUtility.getPaintingsFromDB().get(0).getArtPrice()));
-//            //statusLabel.setText(DBUtility.getPaintingsFromDB().get(0).getPaintingTechnique());
-//            //typeLabel.setText(DBUtility.getPaintingsFromDB().get(0).getPaintingType());
-//            //paintingImageView.setImage(DBUtility.getPaintingsFromDB().get(0).getArtImage());
-//       // }
-//    }
+    @FXML
+    private void lastPainting(ActionEvent actionEvent) throws SQLException {
+        if(index>0)
+        {
+            index -= 1;
+            showData();
+        }
+        else
+        {
+            index=DBUtility.getPaintingsFromDB().size();
+        }
+    }
+
+    @FXML
+    private void nextPainting(ActionEvent actionEvent) throws SQLException {
+        if (index < DBUtility.getPaintingsFromDB().size()-1)
+        {
+            index += 1;
+            showData();
+        }
+        else
+        {
+            index=0;
+        }
+    }
 
     @FXML
     private  void goToGallery(ActionEvent event) throws IOException
@@ -80,4 +107,5 @@ public class PaintingViewController implements Initializable
     }
 
 }
+
 

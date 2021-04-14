@@ -18,18 +18,24 @@ public class Artwork
     private double artPrice;
     public Object ArtStatus;
     private Image artImage;
-    private static int nextArtID=1;
 
     public Artwork(int artID,String artTitle, String artAuthor, int artCreationDate, String ArtCategory,double artPrice,String ArtStatus)
     {
-        setArtID(nextArtID++);
+        setArtID(artID);
         setArtTitle(artTitle);
         setArtAuthor(artAuthor);
         setArtCreationDate(artCreationDate);
         setArtCategory(ArtCategory);
         setArtPrice(artPrice);
         setArtStatus(ArtStatus);
-        //setArtImage();
+    }
+    public Artwork(String artTitle, String artAuthor, int artCreationDate, double artPrice,String ArtStatus)
+    {
+        setArtTitle(artTitle);
+        setArtAuthor(artAuthor);
+        setArtCreationDate(artCreationDate);
+        setArtPrice(artPrice);
+        setArtStatus(ArtStatus);
     }
 
     /**
@@ -109,13 +115,6 @@ public class Artwork
         this.artPrice = artPrice;
     }
 
-
-    public void setArtImage()
-    {
-        String filePath=String.format("images/%d.PNG",artID);
-        artImage=new Image(filePath);
-    }
-
     public int getArtID()
     {
         return artID;
@@ -147,11 +146,6 @@ public class Artwork
     public double getArtPrice()
     {
         return artPrice;
-    }
-
-    public Image getArtImage()
-    {
-        return artImage;
     }
 
     public String toString()

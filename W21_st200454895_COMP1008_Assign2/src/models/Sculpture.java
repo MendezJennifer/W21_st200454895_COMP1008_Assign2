@@ -7,27 +7,27 @@
 
 package models;
 
+import javafx.scene.image.Image;
+
 public class Sculpture extends Artwork
 {
     private String sculptureMaterial;
     private double sculptureHeight;
+    public static final String SCULPTURECAT="Sculpture";
+    private Image sculptureImage;
+
 
     public Sculpture(int artID, String artTitle, String artAuthor, int artCreationDate, String ArtCategory, double artPrice, String ArtStatus, String sculptureMaterial, double sculptureHeight) {
         super(artID, artTitle, artAuthor, artCreationDate, ArtCategory, artPrice, ArtStatus);
+        setSculptureImage();
         setSculptureMaterial(sculptureMaterial);
         setSculptureHeight(sculptureHeight);
     }
 
-    /**
-     * Method that ensures all the sculptures are classified under the Sculpture category
-     * @param ArtCategory
-     */
-    public void setSculptureCategory(Object ArtCategory)
-    {
-        if(ArtCategory.equals("Sculpture"))
-            this.ArtCategory=ArtCategory;
-        else
-            throw new IllegalArgumentException("Please select Sculpture as the category for this object");
+    public Sculpture(String artTitle, String artAuthor, int artCreationDate, double artPrice, String ArtStatus, String sculptureMaterial, double sculptureHeight) {
+        super(artTitle, artAuthor, artCreationDate, artPrice, ArtStatus);
+        setSculptureMaterial(sculptureMaterial);
+        setSculptureHeight(sculptureHeight);
     }
 
     /**
@@ -52,6 +52,16 @@ public class Sculpture extends Artwork
         if(sculptureHeight<=0)
             throw new IllegalArgumentException("Sculpture height must be greater than zero.");
         this.sculptureHeight = sculptureHeight;
+    }
+
+    public void setSculptureImage()
+    {
+        String filePath = String.format("images/s%d.png",getArtID());
+        this.sculptureImage = new Image(filePath);
+    }
+
+    public Image getSculptureImage() {
+        return sculptureImage;
     }
 
     public String getSculptureMaterial()
